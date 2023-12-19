@@ -1,0 +1,21 @@
+<template>
+    <c-section-layout title="Product" >
+      <label>
+        Product id:
+        <input type="text" />
+      </label>  
+    </c-section-layout>
+    <c-section-layout divider='true'>
+      <label>
+        Name: 
+      </label>
+      <label>
+        Price: 
+      </label>
+      <label slot="right-side">
+        Quantity:
+        <input type="number" />
+      </label>
+      <lightning-button slot="right-side" label="Verify"></lightning-button>
+    </c-section-layout>
+</template>

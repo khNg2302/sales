@@ -1,0 +1,16 @@
+<template>
+  <div class="section-container">
+    <section>
+      <h3 lwc:if={title}>{title}</h3>
+      <div>
+        <slot></slot>
+      </div>
+      <div class="right-side">
+        <slot name="right-side"></slot>
+      </div>
+    </section>
+    <div class="marign"></div>
+    <div class="divider" lwc:if={divider}></div>
+
+  </div>
+</template>

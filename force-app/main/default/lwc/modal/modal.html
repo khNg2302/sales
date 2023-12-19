@@ -1,0 +1,9 @@
+<template>
+  <lightning-modal-header label={header}></lightning-modal-header>
+  <lightning-modal-body>
+    <slot name="content"></slot>
+  </lightning-modal-body>
+  <lightning-modal-footer>
+      <slot name="footer"></slot>
+  </lightning-modal-footer>
+</template>

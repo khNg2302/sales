@@ -1,0 +1,18 @@
+<template >
+  <c-section-layout title="Customer" >
+    <label>
+      Customer Id: 
+      <input type="text" onkeydown={handleEnterId} />
+    </label>
+   
+
+    <lightning-button slot="right-side" label="New" onclick={handleClickNewCustomer}></lightning-button>
+
+  </c-section-layout>
+  <div class="customer">
+    <c-section-layout divider='true'>
+      <h4 lwc:if={customer}>{customer.Name}</h4>
+      <p lwc:if={error}>{error}</p>
+    </c-section-layout>
+  </div>
+</template>
