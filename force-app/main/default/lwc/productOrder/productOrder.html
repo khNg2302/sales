@@ -2,20 +2,21 @@
     <c-section-layout title="Product" >
       <label>
         Product id:
-        <input type="text" />
+        <input type="text" onkeydown={handleEnterId} />
       </label>  
     </c-section-layout>
     <c-section-layout divider='true'>
       <label>
-        Name: 
+        Name: {product.Name}
       </label>
       <label>
-        Price: 
+        Price: {product.Price__c}
       </label>
-      <label slot="right-side">
+      <label slot="right-side" lwc:ref="quantityField">
         Quantity:
-        <input type="number" />
+        <input type="number" onchange={handleChangeQuantity}  />
       </label>
-      <lightning-button slot="right-side" label="Verify"></lightning-button>
+      <lightning-button slot="right-side" label="Verify" onclick={handleVerify}></lightning-button>
+      <p>{error}</p>
     </c-section-layout>
 </template>

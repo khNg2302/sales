@@ -1,0 +1,25 @@
+<template>
+  <c-section-layout title="Detail">
+    <table>
+      <thead>
+        <th>Product name</th>
+        <th>Quantity</th>
+      </thead>
+      <tbody>
+        <tr for:each={detail} for:item="item" key={index}>
+          <td>{item.product.Name}</td>
+          <td>{item.quantity}</td> 
+        </tr>
+      </tbody>
+    </table>
+
+  </c-section-layout>
+  <c-section-layout>
+    <div slot="right-side">
+      <h4>Total: {}</h4>
+      <lightning-button label="OK" onclick={handleOK}></lightning-button>
+    </div>
+   
+
+  </c-section-layout>
+</template>
