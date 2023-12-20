@@ -11,21 +11,16 @@ export default class CustomerOrder extends LightningElement {
   handleEnterId (e) {
     if(e.key === 'Enter'){
       getCustomer({id: e.target.value})
-      .then((data)=>{
+      .then(async (data)=>{
         if(!data.length){
           this.customer = {};
           this.error='Not found customer';
           return
         }
+
         this.customer = data[0];
-
-        this.order = createOrder(this.customer)
-
-        
-  
-    
-        const findIdEvent = new CustomEvent('findid',{detail: this.customer})
-        
+        this.order = await createOrder({customer: this.customer})
+        const findIdEvent = new CustomEvent('createorder',{detail: this.order})
         this.dispatchEvent(findIdEvent)
         this.error = '';
       })

@@ -41,8 +41,5 @@ export default class ProductOrder extends LightningElement {
       }
     })
     this.dispatchEvent(getProductEvent)
-
-    this.product={}
-    this.quantity={}
   }
 }

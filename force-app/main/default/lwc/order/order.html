@@ -1,7 +1,8 @@
 <template>
   <div class="order-page">
-    <c-customer-order onfindid={handleSetCustomer}></c-customer-order>
+    <c-customer-order oncreateorder={handleSetOrder}></c-customer-order>
     <c-product-order onfindproduct={handleAddProduct}></c-product-order>
-    <c-order-detail detail={detailDisplay}></c-order-detail>
+    <c-order-detail detail={detailDisplay} onsaveorder={handleSaveOrder}></c-order-detail>
+    <p>{detail}</p>
   </div>
 </template>

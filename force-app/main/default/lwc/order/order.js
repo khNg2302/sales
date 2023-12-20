@@ -1,5 +1,6 @@
 import { LightningElement } from 'lwc';
 import newDetail from '@salesforce/apex/OrderClass.newDetail'
+import insertDetail from '@salesforce/apex/OrderClass.insertDetail'
 
 export default class Order extends LightningElement {
   customer;
@@ -7,13 +8,14 @@ export default class Order extends LightningElement {
   detailDisplay=[];
   order;
 
-  handleSetCustomer (event) {
-    this.customer = event.detail
+
+  handleSetOrder (event) {
+    this.order = event.detail
   }
 
-  handleAddProduct (event){
+  async handleAddProduct (event){
       const detailItem = event.detail;
-      const newDetailValue = newDetail(this.order, detailItem.product,detailItem.quantity)
+      const newDetailValue = await newDetail({order:this.order, product:detailItem.product,quantity:detailItem.quantity})
       this.detail= [...this.detail, newDetailValue]
       this.detailDisplay = [...this.detailDisplay,
       {
@@ -21,5 +23,9 @@ export default class Order extends LightningElement {
         quantity:detailItem.quantity
       }
       ]
+  }
+
+  handleSaveOrder () {
+    insertDetail({detail:this.detail})
   }
 }

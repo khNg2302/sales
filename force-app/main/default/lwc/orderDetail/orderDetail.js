@@ -4,6 +4,6 @@ export default class OrderDetail extends LightningElement {
   @api detail;
 
   handleOK () {
-    this.dispatchEvent('saveorder');
+    this.dispatchEvent(new CustomEvent('saveorder'));
   }
 }
